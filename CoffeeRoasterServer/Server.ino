@@ -1,5 +1,8 @@
 WiFiServer server(8180);
 
+long testtemperature = 0;
+int testtime = 0;
+
 void setupServer(String ssid, String password) {
   if (!SPIFFS.begin()) {
     Serial.println("An Error has occurred while mounting SPIFFS");
@@ -39,10 +42,18 @@ void serverLoop() {
           displayNewMessages(messages, 2);
           handleNewProfile(readBuffer);
         }
+        else if (readBuffer.startsWith("get"))
+        {
+          testtemperature = random(20,90);
+          String outputMessage = (String)"1:" + testtemperature + ":" + testtime;
+          client.print(outputMessage);
+          testtime += 2;
+        }
         else
         {
-          displayNewMessage(readBuffer);
+           displayNewMessage(readBuffer);
         }
+        
       }
     }
     client.stop();
