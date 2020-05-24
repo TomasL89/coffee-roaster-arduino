@@ -1,0 +1,76 @@
+{
+    "RoastName": "ElephantHill20Min",
+    "RoastLengthTotalInSeconds": 900,
+    "RoastPoints": [
+        {
+            "StagePoint": 0,
+            "StageName": "Stage 1",
+            "Temperature": 200,
+            "StartSeconds": 0,
+            "EndSeconds": 180
+        },
+        {
+            "StagePoint": 1,
+            "StageName": "Stage 2",
+            "Temperature": 140,
+            "StartSeconds": 180,
+            "EndSeconds": 240
+        },
+        {
+            "StagePoint": 2,
+            "StageName": "Stage 3",
+            "Temperature": 150,
+            "StartSeconds": 240,
+            "EndSeconds": 300
+        },
+        {
+            "StagePoint": 3,
+            "StageName": "Stage 4",
+            "Temperature": 160,
+            "StartSeconds": 300,
+            "EndSeconds": 360
+        },
+        {
+            "StagePoint": 4,
+            "StageName": "Stage 5",
+            "Temperature": 170,
+            "StartSeconds": 360,
+            "EndSeconds": 420
+        },
+        {
+            "StagePoint": 5,
+            "StageName": "Stage 6",
+            "Temperature": 180,
+            "StartSeconds": 420,
+            "EndSeconds": 480
+        },
+        {
+            "StagePoint": 6,
+            "StageName": "Stage 7",
+            "Temperature": 190,
+            "StartSeconds": 480,
+            "EndSeconds": 540
+        },
+        {
+            "StagePoint": 7,
+            "StageName": "Stage 8",
+            "Temperature": 200,
+            "StartSeconds": 540,
+            "EndSeconds": 600
+        },
+        {
+            "StagePoint": 8,
+            "StageName": "Stage 9",
+            "Temperature": 205,
+            "StartSeconds": 600,
+            "EndSeconds": 660
+        },
+        {
+            "StagePoint": 8,
+            "StageName": "Stage 9",
+            "Temperature": 205,
+            "StartSeconds": 660,
+            "EndSeconds": 900
+        }
+    ]
+}

@@ -1,3 +1,6 @@
+#include "icon.h"
+#include <Adafruit_GFX.h>
+#include <Adafruit_ILI9341.h>
 // from http://colormind.io/
 #define COFFEE_BROWN 0xA38B
 #define COFFEE_GREEN 0x0652
@@ -17,11 +20,7 @@
 #define TEXT_BLOCK_HEIGHT 84
 #define TEXT_BLOCK_WIDTH 120
 
-int beanCounter = 0;
-int beanColor[] = { 0x7676, 0x7614, 0x7DD3, 0x8572, 0x8531, 0x8CD0,
-				0x948E,0x9C2D, 0x9BCC, 0xA38B };
-
-Adafruit_ILI9341 tft = Adafruit_ILI9341(0, 1);// = Adafruit_ILI9341(TFT_CS, TFT_DC);
+Adafruit_ILI9341 tft = Adafruit_ILI9341(0, 1);
 
 void setupScreen(int tftCs, int tftDc) {
 	tft = Adafruit_ILI9341(tftCs, tftDc);
@@ -53,27 +52,20 @@ void displayNewMessages(String messages[], int n)
 	}
 }
 
-void drawIntroWifi(String wifi)
-{
-	if (beanCounter >= 9)
-	{
-		beanCounter = 0;
-	}
-
-	tft.drawBitmap(80, 40, wiFiIcon, ICON_SIZE, ICON_SIZE, beanColor[beanCounter]);
-	tft.setCursor(30, 140);
-	tft.setTextColor(beanColor[beanCounter]);
-	tft.println("Login via:");
-	tft.setCursor(0, 200);
-	tft.println(wifi);
-	beanCounter += 1;
-}
-
-void drawHeater(String heaterOnStatus) {
+void drawHeater(bool heaterOnStatus) {
 	int xOffset = ROW_FOUR_X + ICON_SIZE + ICON_TEXT_MARGIN;
 	tft.fillRect(xOffset, ROW_FOUR_Y, TEXT_BLOCK_WIDTH - ICON_TEXT_MARGIN, TEXT_BLOCK_HEIGHT - ICON_TEXT_MARGIN, ILI9341_BLACK);
 	tft.setCursor(xOffset, ROW_FOUR_Y + ICON_TEXT_MARGIN);
-	tft.print(heaterOnStatus);
+
+	if (heaterOnStatus)
+	{
+		tft.print("On");
+	}
+	else
+	{
+		tft.print("Off");
+	}
+	
 }
 
 void drawHomeScreen() {
